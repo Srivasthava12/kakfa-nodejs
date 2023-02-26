@@ -6,8 +6,8 @@ interface Router {
     importRouter: (routeFilePath: string) => any;
   }
 
-export const Router: Router = {
-	build(app: express.Application): void {
+export const Router = {
+	build(app): void {
 		const routes = fs
 			.readdirSync(__dirname)
 			.filter((file) => file !== 'index.js')
@@ -19,6 +19,7 @@ export const Router: Router = {
 		});
 	},
 	importRouter(routeFilePath: string): any {
+		console.log('routeFilePath :>> ', routeFilePath);
 		return require(routeFilePath);
 	}
 };
