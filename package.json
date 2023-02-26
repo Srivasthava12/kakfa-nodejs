@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
+  "nodemonConfig": {
+    "watch": [ "src"],
+    "ext": "ts,json",
+    "ignore": ["src/**/*.spec.ts"],
+    "execMap": {
+      "ts": "node --inspect=0.0.0.0:9229 --nolazy  -r tsconfig-paths/register -r ts-node/register"
+    }
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc && tsc-alias",
-    "start": "npm run build && node ./dist/index.js",
-    "start:env": "npm run build && cross-env $(grep '' .env | tr '\n' ' ' | tr -d '\r') node ./dist/index.js",
-    "build:watch": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")"
+    "start": "node ./dist/index.js",
+    "build:watch": "tsc --watch",
+    "start:watch": "nodemon index.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +26,7 @@
     "@types/node": "^18.14.1",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
+    "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "eslint": "^8.18.0",
@@ -24,13 +34,17 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.20",
     "pino-pretty": "^9.4.0",
     "rimraf": "^4.1.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.14.2",
     "typescript": "4.6.4"
   },
   "dependencies": {
     "convict": "^6.2.4",
     "express": "^4.18.2",
+    "kafkajs": "^2.2.3",
     "pino": "^8.11.0",
     "tsc-alias": "^1.8.2"
   }

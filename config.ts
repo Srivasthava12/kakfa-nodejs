@@ -21,5 +21,12 @@ export default {
       nullable: false,
       env: 'PRETTY_PRINT_LOG',
     },
+  },
+  kafkaHost : {
+    doc: 'The API listening port. By default is 3000',
+    format: 'String',
+    default: null,
+    nullable: true,
+    env: 'KAFKA_HOST',
   }
 }

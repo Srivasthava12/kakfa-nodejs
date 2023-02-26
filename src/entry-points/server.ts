@@ -2,7 +2,6 @@ import { Server } from 'http';
 import { AddressInfo } from 'net';
 import * as configurationProvider from '@lib/config-provider'
 import { logger } from '@lib/logger';
-import config from 'config';
 import express from 'express'
 import { addRequestIdMiddleware } from '@lib/request-context'
 import { Router } from './routes'
@@ -14,12 +13,6 @@ let connection: Server;
 
 
 async function startServer(): Promise<AddressInfo> {
-    // Declare a strict configuration schema and fail fast if the configuration is invalid
-    configurationProvider.initializeAndValidate(config)
-    logger.configureLogger({
-        prettyPrint: Boolean(configurationProvider.getValue('logger.prettyPrint')),
-    }, true)
-
     const expressApp = express();
     expressApp.use(addRequestIdMiddleware)
     expressApp.use(express.urlencoded({ extended: true }));

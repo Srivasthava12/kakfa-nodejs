@@ -1,10 +1,19 @@
 import { logger } from "@lib/logger";
 import { AppError, errorHandler } from "@lib/error-handling";
 import { startServer } from "@entry/server";
-// require('dotenv').config()
+import config from 'config';
+import * as configurationProvider from '@lib/config-provider'
+// import { startMessaging } from "@entry/messaging"
+require('dotenv').config()
 
 async function start() {
-    return Promise.all([startServer()])
+    // Declare a strict configuration schema and fail fast if the configuration is invalid
+    configurationProvider.initializeAndValidate(config)
+    logger.configureLogger({
+        prettyPrint: Boolean(configurationProvider.getValue('logger.prettyPrint')),
+    }, true)
+    
+    return Promise.all([startServer() ])
 }
 
 start().then((resultList) => {
