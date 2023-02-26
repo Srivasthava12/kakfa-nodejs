@@ -7,12 +7,13 @@ export default class PinoLogger implements LoggerInterface {
 
     constructor(private level: LOG_LEVELS, prettyPrintEnabled: boolean, private destStream?: DestinationStream){
         this.#logger = pino({
-            level,
+            level:level,
             transport: prettyPrintEnabled
               ? {
                   target: 'pino-pretty',
                   options: {
                     colorize: true,
+                    colorizeObjects: true,
                     sync: true,
                   },
                 }

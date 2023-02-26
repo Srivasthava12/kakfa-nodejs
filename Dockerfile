@@ -18,9 +18,6 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Build the TypeScript project
-RUN npm run build
-
 # Create a new user and group
 RUN addgroup -S app && \
     adduser -S -G app app && \

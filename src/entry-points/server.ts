@@ -16,7 +16,6 @@ let connection: Server;
 async function startServer(): Promise<AddressInfo> {
     // Declare a strict configuration schema and fail fast if the configuration is invalid
     configurationProvider.initializeAndValidate(config)
-    console.log('configurationProvider.getValue>> ', configurationProvider.getValue('port'));
     logger.configureLogger({
         prettyPrint: Boolean(configurationProvider.getValue('logger.prettyPrint')),
     }, true)
