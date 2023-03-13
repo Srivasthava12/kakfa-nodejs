@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "nodemonConfig": {
-    "watch": [ "src"],
+    "watch": [
+      "src"
+    ],
     "ext": "ts,json",
-    "ignore": ["src/**/*.spec.ts"],
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
     "execMap": {
       "ts": "node --inspect=0.0.0.0:9229 --nolazy  -r tsconfig-paths/register -r ts-node/register"
     }
@@ -42,10 +45,13 @@
     "typescript": "4.6.4"
   },
   "dependencies": {
+    "@sinclair/typebox": "^0.25.24",
+    "ajv": "^8.12.0",
     "convict": "^6.2.4",
     "express": "^4.18.2",
     "kafkajs": "^2.2.3",
     "pino": "^8.11.0",
-    "tsc-alias": "^1.8.2"
+    "tsc-alias": "^1.8.2",
+    "uuid": "^9.0.0"
   }
 }

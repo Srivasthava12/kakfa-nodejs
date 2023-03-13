@@ -19,7 +19,6 @@ export const Router = {
 		});
 	},
 	importRouter(routeFilePath: string): any {
-		console.log('routeFilePath :>> ', routeFilePath);
 		return require(routeFilePath);
 	}
 };

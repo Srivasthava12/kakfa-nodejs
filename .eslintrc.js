@@ -23,13 +23,9 @@ module.exports = {
         { devDependencies: ['**/tests/**', '**/test/**'] },
       ],
       'no-console': ['error', { allow: ['time', 'timeEnd'] }],
-      // not sure why we need this if Typescript already enforces it.
-      // If we want to enable these rules, we need use: eslint-import-resolver-typescript
       'import/no-unresolved': 'off',
       'import/extensions': 'off',
-      // https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/errorhandling/returningpromises.md
       'no-return-await': 'off',
-      // Turn it back on after this being fixed: https://github.com/eslint/eslint/issues/15617
       'no-restricted-exports': 'off',
       'no-param-reassign': 'off',
       'no-use-before-define': 'off',

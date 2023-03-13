@@ -21,13 +21,13 @@ COPY . .
 # Build the TypeScript project
 RUN npm run build
 
-# Create a new user and group
-RUN addgroup -S app && \
-    adduser -S -G app app && \
-    chown -R app:app /usr/src/app
+# # Create a new user and group
+# RUN addgroup -S appG && \
+#     adduser -S -G appG app && \
+#     chown -R app:appG /usr/src/app
 
-# Switch to the new user
-USER app
+# # Switch to the new user
+# USER app
 
 
 
