@@ -1,0 +1,8 @@
+{
+    "watch": ["src", "src/entry-points", "src/libraries", "src/services", "src/models"],
+    "ext": "ts",
+    "execMap": {
+      "ts": "ts-node -r tsconfig-paths/register"
+    }
+  }
+  

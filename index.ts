@@ -4,8 +4,6 @@ import { startServer } from "@entry/server";
 import { startMessaging } from "@entry/messaging"
 import config from 'config';
 import * as configurationProvider from '@lib/config-provider'
-// import { startMessaging } from "@entry/messaging"
-require('dotenv').config()
 
 async function start() {
     // Declare a strict configuration schema and fail fast if the configuration is invalid
