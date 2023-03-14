@@ -7,10 +7,10 @@ dc-build:
 
 # ---------- Development ----------
 start: dc-build
-	docker-compose run --service-ports app run start
+	docker-compose run --service-ports app npm run start
 
 sh: dc-build
-	docker-compose run --entrypoint=sh app
+	docker-compose run --entrypoint=sh --service-ports app
 
 # ---------- Testing ----------
 test: dc-build

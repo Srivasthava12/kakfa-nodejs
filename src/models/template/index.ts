@@ -1,0 +1,1 @@
+export { registerTemplateEvent } from './register-template'

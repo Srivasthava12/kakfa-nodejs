@@ -1,5 +1,4 @@
-import { Kafka, Producer, Consumer, ConsumerRunConfig } from 'kafkajs';
-import * as configurationProvider from '@lib/config-provider'
+import { Kafka, Producer, Consumer, ConsumerRunConfig, RecordMetadata } from 'kafkajs';
 
 class KafkaWrapper {
   private kafka: Kafka;
@@ -17,8 +16,8 @@ class KafkaWrapper {
     await this.consumer.connect();
   }
 
-  public async sendMessage(topic: string, message: string): Promise<void> {
-    await this.producer.send({
+  public async sendMessage(topic: string, message: string): Promise<RecordMetadata[]> {
+    return await this.producer.send({
       topic: topic,
       messages: [{ value: message }],
     });

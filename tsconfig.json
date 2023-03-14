@@ -31,7 +31,8 @@
       "paths": { 
         "@lib/*": ["src/libraries/*"],
         "@entry/*":["src/entry-points/*"],
-        "@services/*":["src/services/*"]
+        "@services/*":["src/services/*"],
+        "@models/*":["src/models/*"]
       },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
       // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
       // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */

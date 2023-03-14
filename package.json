@@ -3,24 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "nodemonConfig": {
-    "watch": [
-      "src"
-    ],
-    "ext": "ts,json",
-    "ignore": [
-      "src/**/*.spec.ts"
-    ],
-    "execMap": {
-      "ts": "node --inspect=0.0.0.0:9229 --nolazy  -r tsconfig-paths/register -r ts-node/register"
-    }
-  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc && tsc-alias",
     "start": "node ./dist/index.js",
     "build:watch": "tsc --watch",
-    "start:watch": "nodemon index.ts"
+    "start:watch": "nodemon -e ts --exec 'tsc && tsc-alias -p ./tsconfig.json && node ./dist/index.js'"
   },
   "keywords": [],
   "author": "",
