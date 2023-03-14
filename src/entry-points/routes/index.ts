@@ -10,12 +10,12 @@ export const Router = {
 	build(app): void {
 		const routes = fs
 			.readdirSync(__dirname)
-			.filter((file) => file !== 'index.js')
-			.filter((file) => file.match(/^(?!.*\.test\.js$).*\.js$/))
+			.filter((file) => file !== 'index.ts')
+			.filter((file) => file.match(/^(?!.*\.test\.ts$).*\.ts$/))
 			.map((file) => file.split('.')[0]);
-
+			
 		routes.forEach((route: string) => {
-			app.use(`/${route}`, this.importRouter(`./${route}.js`));
+			app.use(`/${route}`, this.importRouter(`./${route}.ts`));
 		});
 	},
 	importRouter(routeFilePath: string): any {

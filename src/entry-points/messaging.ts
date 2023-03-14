@@ -8,7 +8,7 @@ export async function startMessaging() {
         const kafkaHost = configurationProvider.getValue('kafkaHost');
         if(kafkaHost) {
             await kafkaWrapper.connect()
-            // await kafkaWrapper.sendMessage("INIT", "INIT")
+            await kafkaWrapper.sendMessage("INIT", "INIT")
         }
         return kafkaHost
     } catch (error) {

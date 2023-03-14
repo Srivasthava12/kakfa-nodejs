@@ -14,7 +14,7 @@ async function start() {
 }
 
 start().then((resultList) => {
-    logger.info(`The app has started !! ${resultList}`);
+    logger.info(`The app has started !! ${JSON.stringify(resultList)}`);
 }).catch((error) => {
     errorHandler.handleError(new AppError('startup-failure', error.message, 500, false, error));
 })
