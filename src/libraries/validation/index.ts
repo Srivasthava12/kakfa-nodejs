@@ -5,4 +5,13 @@ import AJV from 'ajv';
 
 const ajv = new AJV();
 
+
+ajv.addFormat('base64', {
+  type: 'string',
+  validate: function (data) {
+    const regex = /^[a-zA-Z0-9+/]*={0,2}$/;
+    return regex.test(data);
+  },
+});
+
 export default ajv

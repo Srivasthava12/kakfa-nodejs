@@ -1,0 +1,1 @@
+export { push2Storage } from './push-storage'
